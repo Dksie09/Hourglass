@@ -6,14 +6,14 @@ import { useInView } from 'react-intersection-observer';
 // Define the structure for product items
 interface Product {
     name: string;
-    image: string;
+    Image: string;
 }
 
 const productItems: Product[] = [
-    { name: 'Pods', image: './blob2.png' },
-    { name: 'Flowers', image: './blob2.png' },
-    { name: 'Batteries', image: './blob2.png' },
-    { name: 'Extracts', image: './blob2.png' },
+    { name: 'Pods', Image: './blob2.png' },
+    { name: 'Flowers', Image: './blob2.png' },
+    { name: 'Batteries', Image: './blob2.png' },
+    { name: 'Extracts', Image: './blob2.png' },
 ];
 
 const Products: React.FC = () => {
@@ -63,7 +63,7 @@ const Products: React.FC = () => {
                 className='flex flex-row justify-center items-center gap-20 mt-20'
             >
                 {productItems.map((item, index) => (
-                    <ProductItem key={item.name} name={item.name} image={item.image} />
+                    <ProductItem key={item.name} name={item.name} Image={item.Image} />
                 ))}
             </motion.div>
         </div>
@@ -74,13 +74,13 @@ export default Products;
 
 interface ProductItemProps {
     name: string;
-    image: string;
+    Image: string;
 }
 
-const ProductItem: React.FC<ProductItemProps> = ({ name, image }) => {
+const ProductItem: React.FC<ProductItemProps> = ({ name, Image }) => {
     return (
         <div className='flex flex-col items-center gap-8'>
-            <img src={image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+            <img src={Image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
             <span className='text-2xl font-extralight'>{name}</span>
         </div>
     );

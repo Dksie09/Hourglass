@@ -167,8 +167,8 @@ export default Hero
 //     const contents = [
 //         {
 //             title: 'CANNABIS',
-//             imageSrc: './cannabis-hero.png',
-//             imageSize: 'w-1/2',
+//             ImageSrc: './cannabis-hero.png',
+//             ImageSize: 'w-1/2',
 //             opacity: 'opacity-90',
 //             fontSize: '20vw',
 //             marginBottom: 'mb-96',
@@ -176,8 +176,8 @@ export default Hero
 //         },
 //         {
 //             title: 'EDIBLES',
-//             imageSrc: './edibles-hero.png',
-//             imageSize: 'w-2/3',
+//             ImageSrc: './edibles-hero.png',
+//             ImageSize: 'w-2/3',
 //             opacity: 'opacity-95',
 //             fontSize: '30vw',
 //             marginBottom: 'mb-60',
@@ -196,7 +196,7 @@ export default Hero
 //         return () => clearInterval(intervalId); // Cleanup the interval on component unmount
 //     }, []); // Empty dependency array ensures the effect runs only once on mount
 
-//     const { title, imageSrc, imageSize, opacity, fontSize, marginBottom, bgColor } = contents[currentIndex]; // Destructure the current content configuration
+//     const { title, ImageSrc, ImageSize, opacity, fontSize, marginBottom, bgColor } = contents[currentIndex]; // Destructure the current content configuration
 
 //     return (
 //         <div className={`min-h-screen ${bgColor} w-full flex flex-col`}>
@@ -217,7 +217,7 @@ export default Hero
 //             </div>
 //             <div className='flex-grow flex flex-col justify-center items-center relative overflow-hidden'>
 //                 <h1 className={`font-bold text-center absolute z-0 ${marginBottom}`} style={{ fontSize }}>{title}</h1>
-//                 <img src={imageSrc} className={`${imageSize} z-10 relative ${opacity}`} alt={title} />
+//                 <img src={ImageSrc} className={`${ImageSize} z-10 relative ${opacity}`} alt={title} />
 //             </div>
 //         </div>
 //     );

@@ -41,14 +41,14 @@ function Cool() {
                 </div>
 
                 <div className='w-full flex flex-col items-center'>
-                    {/* Sticky container for the joint image */}
+                    {/* Sticky container for the joint Image */}
                     <div className='sticky top-0 flex justify-center'>
                         <div className="relative aspect-square rounded-2xl w-96 hidden md:flex [&:has(>_.active-card)]:bg-transparent">
                             <img src="./joint.png" className='object-cover absolute -top-64 scale-75 z-50' alt="Joint Image" />
                         </div>
                     </div>
 
-                    {/* cig image placed outside the sticky container */}
+                    {/* cig Image placed outside the sticky container */}
                     <img src='./cig.png' className='object-cover mt-96 mr-20 scale-75 z-[-1]' alt="Cig Image" />
                 </div>
 
