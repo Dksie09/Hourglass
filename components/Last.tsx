@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function
-    () {
+function last() {
     return (
         <div className='flex flex-col items-center justify-center w-full h-96 bg-[#FFDB97] relative'>
             <div className='flex flex-col items-center justify-center w-full h-full'>
@@ -11,3 +10,5 @@ export default function
         </div>
     )
 }
+
+export default last
