@@ -20,7 +20,7 @@ function Quote() {
     const rotation = scrollY * 0.1; // Adjust the multiplier for more or less rotation
 
     return (
-        <div className='w-full flex flex-col items-center justify-center p-20 bg-[#FFDB97] relative'>
+        <div className='w-full flex flex-col items-center justify-center p-20 bg-[#FFDB97] relative overflow-x-clip'>
             <div
                 className='m-20 rounded-3xl bg-white p-20 w-2/3 text-black flex flex-col items-center gap-10 border-4 border-black relative'
                 style={{ opacity: 1, transform: `translateY(0px)` }}
