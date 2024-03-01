@@ -11,10 +11,10 @@ interface Product {
 }
 
 const productItems: Product[] = [
-    { name: 'Coconut', Image: './tropical-coconut.png' },
-    { name: 'Cranberry', Image: './crandberry-walnut.png' },
-    { name: 'Peanut Butter', Image: './peanut-butter-choco.png' },
-    { name: 'Chocochip', Image: './chocochip-brownie.png' },
+    { name: 'Island Escape Coconut Crunch', Image: './tropical-coconut.png' },
+    { name: 'Snowy Summit Cranberry Crunch', Image: './crandberry-walnut.png' },
+    { name: 'Peak Power Peanut Crunch', Image: './peanut-butter-choco.png' },
+    { name: 'Espresso Bean Dark Chocolate', Image: './chocochip-brownie.png' },
 ];
 
 const Products: React.FC = () => {
@@ -51,7 +51,7 @@ const Products: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className='text-2xl font-extralight'
             >
-                Explore our wide range of premium products
+                Explore some of our wide range of premium products
             </motion.span>
             <motion.div
                 initial="hidden"
@@ -78,7 +78,22 @@ interface ProductItemProps {
     Image: string;
 }
 
+interface FormatNameProps {
+    name: string;
+}
+
 const ProductItem: React.FC<ProductItemProps> = ({ name, Image }) => {
+
+    const words = name.split(' ');
+
+    const formattedName = words.reduce((acc: string[][], word: string, index: number) => {
+        const groupIndex = Math.floor(index / 2);
+        if (!acc[groupIndex]) acc[groupIndex] = [];
+        acc[groupIndex].push(word);
+        return acc;
+    }, []).map(group => group.join(' ')).join('<br/>');
+
+
     return (
         <Link href={{ pathname: '/products', query: { id: name } }} className='relative flex flex-col items-center gap-8'>
             <div className="absolute w-full h-full flex justify-center items-center">
@@ -87,7 +102,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ name, Image }) => {
             <div className="z-10">
                 <img src={Image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
             </div>
-            <span className='text-2xl font-extralight'>{name}</span>
+            <span className='text-xl font-extralight' dangerouslySetInnerHTML={{ __html: formattedName }}></span>
         </Link>
     );
 };

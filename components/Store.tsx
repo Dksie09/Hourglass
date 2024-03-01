@@ -40,8 +40,8 @@ function Quote() {
                 >
                     {/* <h1 className='text-8xl font-extrabold'>Lorem ipsum dolor sit amet</h1> */}
                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat sit aliquet enim senectus dui eros nullam porttitor nascetur tortor.</p> */}
-                    <img src='./map.png' alt='kids' className=' w-full rounded-3xl scale-150' />
-                    <img src='./choco-draw.png' alt='smoking' className='h-52 absolute bottom-16 right-2 transform translate-x-1/2 translate-y-1/2' />
+                    <img src='./map-blue.png' alt='kids' className=' w-full rounded-3xl scale-150' />
+                    {/* <img src='./choco-draw.png' alt='smoking' className='h-52 absolute bottom-16 right-2 transform translate-x-1/2 translate-y-1/2' /> */}
                 </div>
                 <img src='./bite1.png' alt='hemp' className='absolute top-6 -left-28 h-3/6' style={{ transform: `rotate(${rotation}deg)` }} />
                 <img src='./bite2.png' alt='hemp' className='absolute -top-40 -right-20 h-2/6' style={{ transform: `rotate(${-rotation}deg)` }} />

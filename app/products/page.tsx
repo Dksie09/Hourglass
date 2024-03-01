@@ -28,32 +28,39 @@ interface Cart {
 
 const products: Product[] = [
     {
-        name: 'Tropical Coconut',
+        name: 'Island Escape Coconut Crunch',
         bgColor: 'bg-red-200',
         mainImage: './tropical-coconut.png',
-        description: 'Dive into the exotic flavors of tropical coconut, blended perfectly for a refreshing snack. With each bite, you\'ll feel transported to a sun-drenched beach, surrounded by swaying palm trees. Whether you\'re craving a midday pick-me-up or a sweet treat after dinner, our Tropical Coconut bars are sure to satisfy your tropical cravings.',
+        description: "Transport yourself to paradise with our Island Escape Coconut Crunch granola bar. Bursting with tropical coconut flavor and crunchy granola clusters, this irresistible treat is like a vacation in every bite. Close your eyes and let the sweet aroma of coconut whisk you away to sun-kissed beaches and swaying palm trees. Whether you're on the go or taking a moment to unwind, this bar is your ticket to a blissful escape. So grab a bar, take a bite, and let your taste buds journey to paradise.",
         images: ['./coconut.png', './walnut.png'],
     },
     {
-        name: 'Cranberry Walnut',
+        name: 'Snowy Summit Cranberry Crunch',
         bgColor: 'bg-purple-200',
         mainImage: './crandberry-walnut.png',
-        description: 'Experience the perfect blend of tangy cranberries and rich walnuts in every bite. Our Cranberry Walnut bars are crafted with care to bring you a harmonious balance of flavors and textures. Whether you\'re hitting the trails or powering through a busy workday, these bars are a convenient and delicious way to fuel your adventures.',
+        description: "Climb to new culinary heights with our Snowy Summit Cranberry Crunch granola bar. Featuring luscious white chocolate, tart cranberries, and wholesome granola, this delightful treat is a symphony of sweet and tangy flavors that dance across your palate. Whether you're scaling snowy peaks or simply savoring a moment of bliss, this bar is the perfect companion for your journey. With each bite, experience the refreshing crunch of snowy summits and the invigorating burst of cranberry goodness.",
         images: ['./walnut.png', './cranberry.png'],
     },
     {
-        name: 'Peanut Butter Chocolate',
+        name: 'Peak Power Peanut Crunch',
         bgColor: 'bg-blue-200',
         mainImage: './peanut-butter-choco.png',
-        description: 'Indulge in the creamy texture of peanut butter combined with the rich taste of chocolate. Our Peanut Butter Chocolate bars are a match made in heaven, combining two beloved flavors into one irresistible treat. Whether you\'re a peanut butter fanatic, a chocolate lover, or just someone looking for a delicious snack, these bars are sure to hit the spot.',
+        description: 'Indulge in the irresistible allure of Peak Power Peanut Crunch, where the classic combination of creamy peanut butter and crunchy peanuts takes center stage. Packed with protein and bursting with flavor, this energizing granola bar is your go-to snack for fueling adventures and conquering challenges. With every bite, experience the perfect balance of nutty goodness and satisfying crunch that leaves you ready to tackle any peak you set your sights on.',
         images: ['./peanut.png', './cocoa.png'],
     },
     {
-        name: 'Choco Chip Brownie',
+        name: 'Espresso Bean Dark Chocolate',
         bgColor: 'bg-green-200',
         mainImage: './chocochip-brownie.png',
-        description: 'Enjoy the classic choco chip brownie, baked to perfection for a delightful treat. Our Choco Chip Brownie bars capture all the decadent flavors of a traditional brownie in a convenient, portable package. Whether you\'re indulging in a sweet craving or treating yourself to a well-deserved snack, these bars are sure to satisfy your chocolate cravings.',
+        description: 'Prepare to be captivated by the bold allure of Java Jolt Dark Delight. Infused with the rich essence of espresso beans and enrobed in decadent dark chocolate, this granola bar is a heavenly indulgence for coffee lovers and chocolate enthusiasts alike. With each velvety bite, experience a burst of energy and a symphony of flavors that awakens your senses and leaves you craving more. Elevate your snacking experience with this irresistible fusion of dark, delightful decadence.',
         images: ['./cocoa.png', './cranberry.png'],
+    },
+    {
+        name: 'Adventure Trail Mix Fusion',
+        bgColor: 'bg-pink-200',
+        mainImage: './tropical-coconut.png',
+        description: "Embark on a taste adventure like no other with our Adventure Trail Mix Fusion. This granola bar is a tantalizing blend of sweet and savory flavors, featuring a medley of wholesome nuts, dried fruits, and decadent chocolate chips. Whether you're hitting the trails or simply craving a snack that transports you to the great outdoors, this fusion of textures and tastes will satisfy your wanderlust and keep you fueled for whatever lies ahead.",
+        images: ['./walnut.png', './cocoa.png'],
     },
 ];
 
@@ -109,10 +116,10 @@ const Page: React.FC = () => {
                     </div>
                 </div>
                 <div className='w-1/2 relative'>
-                    <h1 className='text-center text-9xl pt-10 text-white shadow-outline heading-font'>
+                    <h1 className='text-center text-8xl pt-10 text-white shadow-outline heading-font'>
                         {selectedProduct.name}
                     </h1>
-                    <span className=' text-pretty text-xl text-black font-extralight block mt-6'>{selectedProduct.description}</span>
+                    <span className=' text-pretty text-base text-black font-extralight block mt-6 pr-5'>{selectedProduct.description}</span>
                     <div className='flex items-center gap-8 mt-8'>
                         <span className='text-pretty text-3xl text-black font-extralight block'>Ingredients: </span>
                         <motion.div layout className='flex justify-center items-center'>
