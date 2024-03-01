@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 
 // Define the structure for product items
 interface Product {
@@ -10,10 +11,10 @@ interface Product {
 }
 
 const productItems: Product[] = [
-    { name: 'Pods', Image: './blob2.png' },
-    { name: 'Flowers', Image: './blob2.png' },
-    { name: 'Batteries', Image: './blob2.png' },
-    { name: 'Extracts', Image: './blob2.png' },
+    { name: 'Coconut', Image: './tropical-coconut.png' },
+    { name: 'Cranberry', Image: './crandberry-walnut.png' },
+    { name: 'Peanut Butter', Image: './peanut-butter-choco.png' },
+    { name: 'Chocochip', Image: './chocochip-brownie.png' },
 ];
 
 const Products: React.FC = () => {
@@ -79,9 +80,14 @@ interface ProductItemProps {
 
 const ProductItem: React.FC<ProductItemProps> = ({ name, Image }) => {
     return (
-        <div className='flex flex-col items-center gap-8'>
-            <img src={Image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+        <Link href={{ pathname: '/products', query: { id: name } }} className='relative flex flex-col items-center gap-8'>
+            <div className="absolute w-full h-full flex justify-center items-center">
+                <img src="./blob2.png" alt="Blob" className="" />
+            </div>
+            <div className="z-10">
+                <img src={Image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+            </div>
             <span className='text-2xl font-extralight'>{name}</span>
-        </div>
+        </Link>
     );
 };

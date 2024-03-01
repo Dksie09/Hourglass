@@ -24,7 +24,7 @@ function Cool() {
         },]
 
     return (
-        <div className='w-full mx-auto min-h-screen px-20'>
+        <div className='w-full mx-auto min-h-screen px-20 '>
             <div className='flex w-full gap-20 items-start'>
 
                 <div className='w-full py-[50vh]'>
@@ -41,19 +41,15 @@ function Cool() {
                 </div>
 
                 <div className='w-full flex flex-col items-center'>
-                    {/* Sticky container for the joint Image */}
                     <div className='sticky top-0 flex justify-center'>
                         <div className="relative aspect-square rounded-2xl w-96 hidden md:flex [&:has(>_.active-card)]:bg-transparent">
                             <img src="./joint.png" className='object-cover absolute -top-64 scale-75 z-50' alt="Joint Image" />
                         </div>
                     </div>
-
-                    {/* cig Image placed outside the sticky container */}
                     <img src='./cig.png' className='object-cover mt-96 mr-20 scale-75 z-[-1]' alt="Cig Image" />
                 </div>
 
             </div>
-            {/* <div className=' w-full bg-white h-96'></div> */}
         </div>
     )
 

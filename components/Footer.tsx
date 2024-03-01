@@ -6,7 +6,7 @@ function Footer() {
 
             <div className="py-6 px-4 w-full">
                 <p className="text-center  text-base">
-                    &copy; {new Date().getFullYear()} Hourglass. All rights reserved.
+                    &copy; {new Date().getFullYear()} ALTRD Bites. All rights reserved.
                 </p>
             </div>
         </footer>
