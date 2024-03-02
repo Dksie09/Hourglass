@@ -123,7 +123,7 @@ function Quote() {
                     </LoadScript>
 
                     <img src='./bite1.png' alt='hemp' className='absolute hidden md:block top-6 -left-28 h-3/6' style={{ transform: `rotate(${rotation}deg)` }} />
-                    <img src='./bite2.png' alt='hemp' className='absolute -top-40 hidden md:block -right-20 h-2/6' style={{ transform: `rotate(${-rotation}deg)` }} />
+                    <img src='./bite2.png' alt='hemp' className='absolute bottom-0 hidden md:block -right-20 h-2/6' style={{ transform: `rotate(${-rotation}deg)` }} />
                 </div>
 
             </div>

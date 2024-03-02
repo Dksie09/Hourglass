@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
+import { account } from "@/app/appwrite";
 
 import {
     Sheet,
@@ -15,8 +16,6 @@ interface Cart {
     name: string;
     bgColor: string;
     mainImage: string;
-    description: string;
-    images: string[];
     quantity: number;
 }
 
@@ -26,8 +25,6 @@ interface HeaderProps {
 }
 
 import { Croissant, MenuIcon } from 'lucide-react';
-
-
 
 const Header: React.FC<HeaderProps> = ({ cart }) => {
 
@@ -45,6 +42,14 @@ const Header: React.FC<HeaderProps> = ({ cart }) => {
 export default Header;
 
 const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
+
+    const successURL = window.location.origin + "/success";
+    const failureURL = window.location.origin + "/error";
+
+    const loginUser = async () => {
+        console.log("loginUser");
+        await account.createOAuth2Session('google', successURL, failureURL);
+    }
 
     const groupedCart = cart.reduce((acc, item) => {
         const found = acc.find((i) => i.name === item.name);
@@ -80,7 +85,7 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
                     <Link href="/contact" className='hover:text-black cursor-pointer py-4 border-b border-black  w-full text-center'>
                         Contact
                     </Link>
-                    <div className='hover:text-black cursor-pointer py-4  w-full text-center'>
+                    <div className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         <Sheet>
                             <SheetTrigger asChild>
                                 <span className='cursor-pointer'>Cart</span>
@@ -120,13 +125,27 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
                             </SheetContent>
                         </Sheet>
                     </div>
+                    <span className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
+                        <button onClick={loginUser} className='cursor-pointer'>
+                            Login
+                        </button>
+                    </span>
                 </div>
+
             </div>
         </div>
     );
 }
 
 const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
+
+    const successURL = window.location.origin + "/success";
+    const failureURL = window.location.origin + "/error";
+
+    const loginUser = async () => {
+        console.log("loginUser");
+        await account.createOAuth2Session('google', successURL, failureURL);
+    }
 
     const groupedCart = cart.reduce((acc, item) => {
         const found = acc.find((i) => i.name === item.name);
@@ -196,7 +215,11 @@ const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
                         </SheetContent>
                     </Sheet>
                     |
-                    <span>Login</span>
+                    <span>
+                        <button onClick={loginUser} className='cursor-pointer'>
+                            Login
+                        </button>
+                    </span>
                 </div>
             </div>
         </div>

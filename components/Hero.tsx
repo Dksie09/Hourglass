@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+"use client";
+import React, { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import Banners from './Banners';
 import Header from './Header';
+import { account } from "@/app/appwrite";
 
 function Hero() {
     const constraintsRef = useRef(null);

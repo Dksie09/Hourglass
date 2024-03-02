@@ -9,7 +9,11 @@ import { useToast } from "@/components/ui/use-toast"
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CartProvider } from '@/context/CartContext';
+import { account, databases } from '../appwrite';
+import { ID } from "appwrite";
 
+const databaseId = process.env.NEXT_PUBLIC_DATABASE_ID || "";
+const collectionId = process.env.NEXT_PUBLIC_COLLECTION_ID || ""
 interface Product {
     name: string;
     bgColor: string;
@@ -21,8 +25,6 @@ interface Cart {
     name: string;
     bgColor: string;
     mainImage: string;
-    description: string;
-    images: string[];
     quantity: number;
 }
 
@@ -70,15 +72,28 @@ const Page: React.FC = () => {
     const [selectedProduct, setSelectedProduct] = useState<Product>(products[0]);
     const [quantity, setQuantity] = useState<number>(1);
     const [cart, setCart] = useState<Cart[]>([]);
+    const [userId, setUserId] = useState<string>('defaultUserId');
 
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        setCart(storedCart);
+        const fetchCart = async () => {
+            try {
+                const session = await account.getSession('current');
+                setUserId(session.userId);
+                const response = await databases.getDocument(
+                    databaseId,
+                    collectionId,
+                    session.userId
+                );
+                if (response.data.cart) {
+                    setCart(JSON.parse(response.data.cart));
+                }
+            } catch (error) {
+                console.log("Error fetching cart from database:", error);
+            }
+        };
+
+        fetchCart();
     }, []);
-
-    useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }, [cart]);
 
     const incrementQuantity = () => setQuantity((prevQuantity) => prevQuantity + 1);
     const decrementQuantity = () => setQuantity((prevQuantity) => prevQuantity > 1 ? prevQuantity - 1 : 1);
@@ -89,18 +104,44 @@ const Page: React.FC = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const handleAddToCart = () => {
-        const newCartItem = {
-            ...selectedProduct,
-            quantity: quantity
-        };
-        setCart([...cart, newCartItem]);
-        console.log(cart);
-        console.log(cart);
-        toast({
-            title: "Item Added to Cart",
-        });
+    const handleAddToCart = async () => {
+        const { description, images, ...restOfProduct } = selectedProduct;
+        const newCartItem = { ...restOfProduct, quantity: quantity };
+        const updatedCart = [...cart, newCartItem];
+        setCart(updatedCart); // Update the local state with the new cart
+
+        const cartString = JSON.stringify(updatedCart); // Convert the updated cart to a string
+
+        try {
+            // Try to update the document with the new cart
+            await databases.updateDocument(
+                databaseId,
+                collectionId,
+                userId,
+                { cart: cartString }
+            );
+        } catch (error) {
+
+            try {
+                await databases.createDocument(
+                    databaseId,
+                    collectionId,
+                    userId,
+                    { uid: userId, cart: cartString }
+                );
+            } catch (creationError) {
+                console.error("Error creating new cart document:", creationError);
+
+            }
+        }
+
+        // Show a success message if the item was added (either updated or created)
+        toast({ title: "Item Added to Cart" });
+        console.log("Item added to cart");
     };
+
+
+
 
 
     return (
