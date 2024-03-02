@@ -36,14 +36,14 @@ const products: Product[] = [
     },
     {
         name: 'Snowy Summit Cranberry Crunch',
-        bgColor: 'bg-purple-200',
+        bgColor: 'bg-blue-200',
         mainImage: './crandberry-walnut.png',
         description: "Climb to new culinary heights with our Snowy Summit Cranberry Crunch granola bar. Featuring luscious white chocolate, tart cranberries, and wholesome granola, this delightful treat is a symphony of sweet and tangy flavors that dance across your palate. Whether you're scaling snowy peaks or simply savoring a moment of bliss, this bar is the perfect companion for your journey. With each bite, experience the refreshing crunch of snowy summits and the invigorating burst of cranberry goodness.",
         images: ['./walnut.png', './cranberry.png'],
     },
     {
         name: 'Peak Power Peanut Crunch',
-        bgColor: 'bg-blue-200',
+        bgColor: 'bg-purple-200',
         mainImage: './peanut-butter-choco.png',
         description: 'Indulge in the irresistible allure of Peak Power Peanut Crunch, where the classic combination of creamy peanut butter and crunchy peanuts takes center stage. Packed with protein and bursting with flavor, this energizing granola bar is your go-to snack for fueling adventures and conquering challenges. With every bite, experience the perfect balance of nutty goodness and satisfying crunch that leaves you ready to tackle any peak you set your sights on.',
         images: ['./peanut.png', './cocoa.png'],
@@ -106,30 +106,29 @@ const Page: React.FC = () => {
     return (
         <div className={`min-h-screen relative ${selectedProduct.bgColor} w-full flex flex-col`}>
             <Header cart={cart} />
-            <div className=' w-full flex'>
-                <div className='w-1/2 flex items-center justify-center'>
-                    <div className="absolute w-full h-full flex justify-center items-center">
-                        <img src="./blob2.png" alt="Blob" className="z-0" />
+            <div className='w-full md:flex md:flex-row flex-col'>
+                {/* Mobile View */}
+                <div className='md:hidden w-full flex flex-col items-center justify-center'>
+                    <div className="absolute top-0 w-full h-full flex justify-center items-center">
+                        <img src="./blob2.png" alt="Blob" className="" />
                     </div>
                     <div className="z-10">
-                        <img src={selectedProduct.mainImage} alt="bar" className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+                        <img src={selectedProduct.mainImage} alt="bar" className='hover:scale-100 scale-90 transition duration-500 ease-in-out transform hover:rotate-12' />
                     </div>
-                </div>
-                <div className='w-1/2 relative'>
-                    <h1 className='text-center text-8xl pt-10 text-white shadow-outline heading-font'>
+                    <h1 className='text-center text-6xl pt-10 px-5 text-white shadow-outline heading-font'>
                         {selectedProduct.name}
                     </h1>
-                    <span className=' text-pretty text-base text-black font-extralight block mt-6 pr-5'>{selectedProduct.description}</span>
+                    <span className=' text-pretty text-sm text-center text-black font-extralight block mt-6 pr-5'>{selectedProduct.description}</span>
                     <div className='flex items-center gap-8 mt-8'>
                         <span className='text-pretty text-3xl text-black font-extralight block'>Ingredients: </span>
                         <motion.div layout className='flex justify-center items-center'>
                             {selectedProduct.images.map((image, index) => (
-                                <motion.img key={index} layout src={image} className=' w-20 object-cover hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' alt='Product Image' />
+                                <motion.img key={index} layout src={image} className='w-20 object-cover hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' alt='Product Image' />
                             ))}
                         </motion.div>
                     </div>
 
-                    <motion.div layout className='flex items-center text-8xl mt-8'>
+                    <motion.div layout className='flex items-center text-8xl mt-8 z-50'>
                         <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='text-white text-3xl bg-transparent border border-white rounded-full w-8 h-8 flex justify-center items-center' onClick={decrementQuantity}>
                             -
                         </motion.button>
@@ -143,18 +142,63 @@ const Page: React.FC = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className='my-4 bg-white text-black py-2 px-4 rounded hover:bg-black hover:text-white transition-colors duration-300'
+                        className='my-4 bg-white z-50 text-black py-2 px-4 rounded hover:bg-black hover:text-white transition-colors duration-300'
                         onClick={handleAddToCart}
                     >
                         Add to Cart
                     </motion.button>
+                </div>
 
+                {/* Laptop View */}
+                <div className='md:flex-row hidden md:w-full md:flex md:items-center md:justify-center'>
+                    <div className='w-1/2 flex items-center justify-center'>
+                        <div className="absolute w-full h-full flex justify-center items-center">
+                            <img src="./blob2.png" alt="Blob" className="z-0" />
+                        </div>
+                        <div className="z-10">
+                            <img src={selectedProduct.mainImage} alt="bar" className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+                        </div>
+                    </div>
+                    <div className='w-1/2 relative'>
+                        <h1 className='text-center text-8xl pt-10 text-white shadow-outline heading-font'>
+                            {selectedProduct.name}
+                        </h1>
+                        <span className=' text-pretty text-base text-black font-extralight block mt-6 pr-5'>{selectedProduct.description}</span>
+                        <div className='flex items-center gap-8 mt-8'>
+                            <span className='text-pretty text-3xl text-black font-extralight block'>Ingredients: </span>
+                            <motion.div layout className='flex justify-center items-center'>
+                                {selectedProduct.images.map((image, index) => (
+                                    <motion.img key={index} layout src={image} className='w-20 object-cover hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' alt='Product Image' />
+                                ))}
+                            </motion.div>
+                        </div>
 
+                        <motion.div layout className='flex items-center text-8xl mt-8'>
+                            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='text-white text-3xl bg-transparent border border-white rounded-full w-8 h-8 flex justify-center items-center' onClick={decrementQuantity}>
+                                -
+                            </motion.button>
+                            <motion.span layout className='text-white text-3xl mx-4'>
+                                {quantity}
+                            </motion.span>
+                            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='text-white text-3xl bg-transparent border border-white rounded-full w-8 h-8 flex justify-center items-center' onClick={incrementQuantity}>
+                                +
+                            </motion.button>
+                        </motion.div>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className='my-4 bg-white z-50 text-black py-2 px-4 rounded hover:bg-black hover:text-white transition-colors duration-300'
+                            onClick={handleAddToCart}
+                        >
+                            Add to Cart
+                        </motion.button>
+                    </div>
                 </div>
             </div>
+
             <div className='w-full bg-white bg-opacity-80 text-center py-8 z-50'>
                 <h1 className='text-8xl font-extrabold mb-4 text-black '>More flavors!</h1>
-                <div className='flex justify-center gap-4 mx-10'>
+                <div className='md:flex-row flex flex-col justify-center gap-4 mx-10'>
                     {products.map((product, index) => (
                         <motion.div key={index} layout whileHover={{ scale: 1.05 }} className={` p-10 rounded-xl ${product.bgColor} shadow-lg }`}>
                             <img src={product.mainImage} alt={product.name} className='w-full  object-cover rounded-t-xl' />

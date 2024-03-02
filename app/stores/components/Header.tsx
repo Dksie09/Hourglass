@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 
 function Header() {
     return (
-        <div className='flex flex-wrap w-full items-center justify-between'>
+        <div className='flex flex-wrap w-full items-center justify-between bg-[#FFDB97]'>
             <img src='https://altrdcannabis.com/wp-content/uploads/2021/11/Asset-1.svg'
                 className='h-12 sm:h-16 md:h-20 pb-1 sm:pb-2 md:pb-5'
                 alt='logo' />
@@ -21,12 +21,12 @@ function MobileHeader() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className='md:hidden'>
+        <div className='md:hidden bg-[#FFDB97]'>
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-black bg-white">
+                className="p-2 rounded-md text-black ">
                 {isMenuOpen ? <Croissant className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
             </button>
-            <div className={`absolute top-0 right-5 border border-black  bg-white my-20 w-1/2 rounded-2xl ${isMenuOpen ? 'block' : 'hidden'} z-50`}>
+            <div className={`absolute top-0 right-5 border border-black bg-[#FFDB97] my-20 w-1/2 rounded-2xl ${isMenuOpen ? 'block' : 'hidden'} z-50`}>
                 <div className="flex flex-col items-center">
                     <Link href="/" className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         Home

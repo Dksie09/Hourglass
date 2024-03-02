@@ -32,8 +32,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "api/stripe.js",
-    "api/stripe.js"
+    "app/api/stripe.jseckout-session.js",
+    "app/api/stripe.jseckout-session.js"
   ],
   "exclude": [
     "node_modules"

@@ -28,7 +28,7 @@ const Products: React.FC = () => {
     }, [controls, inView]);
 
     return (
-        <div ref={ref} className='w-full p-20 text-center bg-white text-black font-black uppercase relative'>
+        <div ref={ref} className='w-full p-4 sm:p-10 md:p-20 text-center bg-white text-black font-black uppercase relative'>
             <motion.h1
                 initial="hidden"
                 animate={controls}
@@ -37,7 +37,7 @@ const Products: React.FC = () => {
                     hidden: { opacity: 0, y: 20 }
                 }}
                 transition={{ duration: 0.5 }}
-                className='text-8xl font-extrabold mb-4'
+                className='text-4xl md:text-6xl lg:text-8xl font-extrabold mb-4'
             >
                 Products
             </motion.h1>
@@ -49,7 +49,7 @@ const Products: React.FC = () => {
                     hidden: { opacity: 0 }
                 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className='text-2xl font-extralight'
+                className='text-lg md:text-xl lg:text-2xl font-extralight'
             >
                 Explore some of our wide range of premium products
             </motion.span>
@@ -61,12 +61,13 @@ const Products: React.FC = () => {
                     hidden: { opacity: 0, y: 20 }
                 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className='flex flex-row justify-center items-center gap-20 mt-20'
+                className='flex flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-10 lg:gap-20 mt-10 md:mt-20 pb-20'
             >
                 {productItems.map((item, index) => (
                     <ProductItem key={item.name} name={item.name} Image={item.Image} />
                 ))}
             </motion.div>
+
         </div>
     );
 };
@@ -95,14 +96,16 @@ const ProductItem: React.FC<ProductItemProps> = ({ name, Image }) => {
 
 
     return (
-        <Link href={{ pathname: '/products', query: { id: name } }} className='relative flex flex-col items-center gap-8'>
-            <div className="absolute w-full h-full flex justify-center items-center">
-                <img src="./blob2.png" alt="Blob" className="" />
+        <Link href={{ pathname: '/products', query: { id: name } }} passHref>
+            <div className='relative flex flex-col items-center gap-2 md:gap-4 lg:gap-8'>
+                <div className="absolute w-full h-full flex justify-center items-center">
+                    <img src="./blob2.png" alt="Blob" className="" />
+                </div>
+                <div className="z-10">
+                    <img src={Image} alt={name} className='w-3/4 md:w-full hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
+                </div>
+                <span className='text-base md:text-lg z-50 lg:text-xl font-normal md:font-extralight' dangerouslySetInnerHTML={{ __html: formattedName }}></span>
             </div>
-            <div className="z-10">
-                <img src={Image} alt={name} className='hover:scale-110 transition duration-500 ease-in-out transform hover:rotate-12' />
-            </div>
-            <span className='text-xl font-extralight' dangerouslySetInnerHTML={{ __html: formattedName }}></span>
         </Link>
     );
 };

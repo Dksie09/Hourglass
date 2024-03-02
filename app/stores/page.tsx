@@ -1,5 +1,19 @@
+"use client";
+
+function page() {
+    return (
+        <div className=' w-full min-h-screen'>
+            <Quote />
+        </div>
+    )
+}
+
+export default page
+
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import Footer from '@/components/Footer';
+import Header from './components/Header';
 
 interface Location {
     lat: number;
@@ -63,38 +77,40 @@ function Quote() {
     };
 
     return (
-        <div className='w-full flex flex-col items-center justify-center md:pt-20 pt-10 md:px-20 px-10 bg-[#FFDB97] relative overflow-x-clip'>
-            <h1 className='text-7xl font-extrabold shadow-outline text-white'>Our Stores</h1>
-            <div className="group py-5 cursor-pointer" onClick={handleFindNearestClick}>
-                <span className="text-2xl font-extralight text-black">
-                    Find the nearest one right now
-                    <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                        -&gt;
+        <>
+            <Header />
+            <div className='w-full flex min-h-screen flex-col items-center md:pt-20 pt-10 md:px-20 px-10 bg-[#FFDB97] relative overflow-x-clip'>
+                <h1 className='text-7xl font-extrabold shadow-outline text-white'>Our Stores</h1>
+                <div className="group py-5 cursor-pointer mb-10" onClick={handleFindNearestClick}>
+                    <span className="text-2xl font-extralight text-black">
+                        Grab a bite from the nearest store now
+                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                            -&gt;
+                        </span>
                     </span>
-                </span>
-            </div>
+                </div>
 
-            <div className=' flex flex-col justify-center w-full md:mb-20 items-center'>
-                <LoadScript
-                    googleMapsApiKey={googleMapsApiKey}
-                    onLoad={() => setIsMapsLoaded(true)} // Set isMapsLoaded to true when the script has loaded
-                >
-                    <GoogleMap
-                        mapContainerStyle={{ width: '100%', height: '400px' }}
-                        zoom={10}
-                        center={{ lat: 35.503120, lng: -97.565740 }}
+                <div className=' flex flex-col justify-center w-full md:mb-20 items-center'>
+                    <LoadScript
+                        googleMapsApiKey={googleMapsApiKey}
+                        onLoad={() => setIsMapsLoaded(true)} // Set isMapsLoaded to true when the script has loaded
                     >
-                        {isMapsLoaded && locations.map((location, index) => (
-                            <Marker
-                                key={index}
-                                position={location}
-                                icon={{
-                                    url: '/custom_marker.png',
-                                    scaledSize: new window.google.maps.Size(45, 45) // This will not throw an error now
-                                }}
-                            />
-                        ))}
-                        {/* {isMapsLoaded && nearestLocation && (
+                        <GoogleMap
+                            mapContainerStyle={{ width: '100%', height: '900px' }}
+                            zoom={10}
+                            center={{ lat: 35.503120, lng: -97.565740 }}
+                        >
+                            {isMapsLoaded && locations.map((location, index) => (
+                                <Marker
+                                    key={index}
+                                    position={location}
+                                    icon={{
+                                        url: '/custom_marker.png',
+                                        scaledSize: new window.google.maps.Size(45, 45) // This will not throw an error now
+                                    }}
+                                />
+                            ))}
+                            {/* {isMapsLoaded && nearestLocation && (
                         <Marker
                             position={nearestLocation}
                             icon={{
@@ -103,18 +119,19 @@ function Quote() {
                             }}
                         />
                     )} */}
-                    </GoogleMap>
-                </LoadScript>
+                        </GoogleMap>
+                    </LoadScript>
 
-                <img src='./bite1.png' alt='hemp' className='absolute hidden md:block top-6 -left-28 h-3/6' style={{ transform: `rotate(${rotation}deg)` }} />
-                <img src='./bite2.png' alt='hemp' className='absolute -top-40 hidden md:block -right-20 h-2/6' style={{ transform: `rotate(${-rotation}deg)` }} />
+                    <img src='./bite1.png' alt='hemp' className='absolute hidden md:block top-6 -left-28 h-3/6' style={{ transform: `rotate(${rotation}deg)` }} />
+                    <img src='./bite2.png' alt='hemp' className='absolute -top-40 hidden md:block -right-20 h-2/6' style={{ transform: `rotate(${-rotation}deg)` }} />
+                </div>
+
             </div>
-
-        </div>
+            <Footer />
+        </>
     );
 }
 
-export default Quote;
 
 
 const styles = [
