@@ -48,7 +48,7 @@ function Hero() {
             </div>
             <div className='flex md:hidden w-full flex-col justify-center items-center relative overflow-hidden'>
                 <h1 className='text-center z-0 heading-font text-white w-full text-[50vw]'>BITES</h1>
-                <img src='./bite-hero.png' className='md:w-full scale-150 md:scale-0 z-10 relative opacity-95 h-full' alt='cannabis' />
+                <img src='./bite-hero.png' className='md:w-full scale-150 md:scale-0 z-10 opacity-95' alt='cannabis' />
             </div>
 
         </div>
