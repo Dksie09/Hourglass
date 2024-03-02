@@ -44,8 +44,14 @@ export default Header;
 
 const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
 
-    const successURL = "https://hourglass-eosin.vercel.app/success"
-    const failureURL = "https://hourglass-eosin.vercel.app/error"
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log("loginUser");
@@ -140,8 +146,14 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
 
 const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
 
-    const successURL = "https://hourglass-eosin.vercel.app/success"
-    const failureURL = "https://hourglass-eosin.vercel.app/error"
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log("loginUser");
