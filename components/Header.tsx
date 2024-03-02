@@ -39,9 +39,9 @@ const Header: React.FC = () => {
                     setUserId(session.userId);
                     try {
                         const response = await databases.getDocument(
-                            databaseId, // Your actual database ID
-                            collectionId, // Your actual collection ID
-                            session.userId // Assuming the document ID is the userId
+                            databaseId,
+                            collectionId,
+                            session.userId
                         );
                         // Assuming response.cart contains the cart data
                         if (response.cart) {
@@ -86,8 +86,14 @@ export default Header;
 
 const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const successURL = window.location.origin + "/success";
-    const failureURL = window.location.origin + "/error";
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log("loginUser");
@@ -183,8 +189,14 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
 
 const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
 
-    const successURL = window.location.origin + "/success";
-    const failureURL = window.location.origin + "/error";
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log(successURL);

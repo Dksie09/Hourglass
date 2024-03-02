@@ -1,5 +1,6 @@
+"use client";
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { account } from "@/app/appwrite";
 
@@ -43,8 +44,14 @@ export default Header;
 
 const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
 
-    const successURL = window.location.origin + "/success";
-    const failureURL = window.location.origin + "/error";
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log("loginUser");
@@ -139,8 +146,14 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
 
 const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
 
-    const successURL = window.location.origin + "/success";
-    const failureURL = window.location.origin + "/error";
+    const [successURL, setSuccessURL] = useState('');
+    const [failureURL, setFailureURL] = useState('');
+
+    useEffect(() => {
+        // This code runs only on the client side
+        setSuccessURL(window.location.origin + "/success");
+        setFailureURL(window.location.origin + "/error");
+    }, []);
 
     const loginUser = async () => {
         console.log("loginUser");

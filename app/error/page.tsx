@@ -4,9 +4,8 @@ import React, { useEffect } from 'react';
 function Page() {
     useEffect(() => {
         const timer = setTimeout(() => {
-            // Redirect to the homepage after 1 second
             window.location.href = '/';
-        }, 1000); // 1000 milliseconds = 1 second
+        }, 1000);
 
         return () => clearTimeout(timer); // Clean up the timer on component unmount
     }, []);
