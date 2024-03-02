@@ -83,6 +83,7 @@ function Quote() {
                         mapContainerStyle={{ width: '100%', height: '400px' }}
                         zoom={10}
                         center={{ lat: 35.503120, lng: -97.565740 }}
+                        options={{ styles }}
                     >
                         {isMapsLoaded && locations.map((location, index) => (
                             <Marker

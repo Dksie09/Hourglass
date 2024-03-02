@@ -89,6 +89,7 @@ const Page: React.FC = () => {
                 }
             } catch (error) {
                 console.log("Error fetching cart from database:", error);
+                // alert("are you logged in bro?");
             }
         };
 
@@ -131,13 +132,19 @@ const Page: React.FC = () => {
                 );
             } catch (creationError) {
                 console.error("Error creating new cart document:", creationError);
+                alert("are you logged in bro?");
 
             }
         }
 
         // Show a success message if the item was added (either updated or created)
         toast({ title: "Item Added to Cart" });
-        console.log("Item added to cart");
+        if (userId === 'defaultUserId') {
+            alert("Are you logged in bro?");
+        }
+        else {
+            alert("Item added to cart");
+        }
     };
 
 
