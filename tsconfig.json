@@ -33,7 +33,11 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/stripe.jseckout-session.js",
-    "app/api/stripe.jseckout-session.js"
+    "app/api/stripe.jseckout-session.js",
+    "app/api/stripe/index.js",
+    "app/api/page.js",
+    "app/checkout/components/pricngCard.jsx",
+    "app/checkout/page.jsx"
   ],
   "exclude": [
     "node_modules"

@@ -3,6 +3,7 @@ import { Croissant, MenuIcon } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { account, databases } from "@/app/appwrite";
+import CartComponent from "@/components/cart"
 import {
     Sheet,
     SheetContent,
@@ -11,16 +12,18 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import { Cart } from '@/app/type';
+
 
 const databaseId = process.env.NEXT_PUBLIC_DATABASE_ID || "";
 const collectionId = process.env.NEXT_PUBLIC_COLLECTION_ID || ""
 
-interface Cart {
-    name: string;
-    bgColor: string;
-    mainImage: string;
-    quantity: number;
-}
+// interface Cart {
+//     name: string;
+//     bgColor: string;
+//     mainImage: string;
+//     quantity: number;
+// }
 
 interface HeaderProps {
     cart: Cart[];
@@ -130,44 +133,7 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
                         Contact
                     </Link>
                     <div className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
-                        <Sheet>
-                            <SheetTrigger asChild>
-                                <span className='cursor-pointer'>Cart</span>
-                            </SheetTrigger>
-                            <SheetContent>
-                                <SheetHeader>
-                                    <SheetTitle>Your Cart</SheetTitle>
-                                    <SheetDescription>
-                                        Here are the items in your shopping cart.
-                                    </SheetDescription>
-                                </SheetHeader>
-                                <div className="py-4 space-y-4">
-                                    {groupedCart.map((item, index) => (
-                                        <div key={index} className={`p-4 rounded-lg ${item.bgColor} shadow-md`}>
-                                            <div className="flex items-center space-x-4">
-                                                <img src={item.mainImage} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
-                                                <div>
-                                                    <h3 className="text-lg font-semibold">{item.name}</h3>
-                                                    <div className="flex items-center space-x-2 mt-2">
-                                                        <span className="text-sm font-medium">Quantity:</span>
-                                                        <span className="text-lg font-bold">{item.quantity}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                    {groupedCart.length === 0 ? (
-                                        <p>Your cart is empty.</p>
-                                    ) : (
-                                        <Link href="/checkout" passHref>
-                                            <button className="mt-4 w-full bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">
-                                                Checkout
-                                            </button>
-                                        </Link>
-                                    )}
-                                </div>
-                            </SheetContent>
-                        </Sheet>
+                        <CartComponent groupedCart={groupedCart} />
                     </div>
                     <span className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         <button onClick={loginUser} className='cursor-pointer'>
@@ -228,44 +194,7 @@ const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
             </Link>
             <div className='absolute top-10 flex gap-4 right-10'>
                 <div className='flex text-black gap-4 pt-2 pr-10 h-full items-center'>
-                    <Sheet>
-                        <SheetTrigger asChild>
-                            <span className='cursor-pointer'>Cart</span>
-                        </SheetTrigger>
-                        <SheetContent>
-                            <SheetHeader>
-                                <SheetTitle>Your Cart</SheetTitle>
-                                <SheetDescription>
-                                    Here are the items in your shopping cart.
-                                </SheetDescription>
-                            </SheetHeader>
-                            <div className="py-4 space-y-4">
-                                {groupedCart.map((item, index) => (
-                                    <div key={index} className={`p-4 rounded-lg ${item.bgColor} shadow-md`}>
-                                        <div className="flex items-center space-x-4">
-                                            <img src={item.mainImage} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
-                                            <div>
-                                                <h3 className="text-lg font-semibold">{item.name}</h3>
-                                                <div className="flex items-center space-x-2 mt-2">
-                                                    <span className="text-sm font-medium">Quantity:</span>
-                                                    <span className="text-lg font-bold">{item.quantity}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {groupedCart.length === 0 ? (
-                                    <p>Your cart is empty.</p>
-                                ) : (
-                                    <Link href="/checkout" passHref>
-                                        <button className="mt-4 w-full bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">
-                                            Checkout
-                                        </button>
-                                    </Link>
-                                )}
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                    <CartComponent groupedCart={groupedCart} />
                     |
                     <span>
                         <button onClick={loginUser} className='cursor-pointer'>

@@ -20,12 +20,16 @@ interface Product {
     mainImage: string;
     description: string;
     images: string[];
+    price: number;
+    priceId: string;
 }
 interface Cart {
     name: string;
     bgColor: string;
     mainImage: string;
     quantity: number;
+    price: number;
+    priceId: string;
 }
 
 const products: Product[] = [
@@ -35,6 +39,8 @@ const products: Product[] = [
         mainImage: './tropical-coconut.png',
         description: "Transport yourself to paradise with our Island Escape Coconut Crunch granola bar. Bursting with tropical coconut flavor and crunchy granola clusters, this irresistible treat is like a vacation in every bite. Close your eyes and let the sweet aroma of coconut whisk you away to sun-kissed beaches and swaying palm trees. Whether you're on the go or taking a moment to unwind, this bar is your ticket to a blissful escape. So grab a bar, take a bite, and let your taste buds journey to paradise.",
         images: ['./coconut.png', './walnut.png'],
+        price: 1500,
+        priceId: "price_1OqG0bSF4qr9mxSUJCadeNe7"
     },
     {
         name: 'Snowy Summit Cranberry Crunch',
@@ -42,6 +48,8 @@ const products: Product[] = [
         mainImage: './crandberry-walnut.png',
         description: "Climb to new culinary heights with our Snowy Summit Cranberry Crunch granola bar. Featuring luscious white chocolate, tart cranberries, and wholesome granola, this delightful treat is a symphony of sweet and tangy flavors that dance across your palate. Whether you're scaling snowy peaks or simply savoring a moment of bliss, this bar is the perfect companion for your journey. With each bite, experience the refreshing crunch of snowy summits and the invigorating burst of cranberry goodness.",
         images: ['./walnut.png', './cranberry.png'],
+        price: 1500,
+        priceId: "price_1OqG0bSF4qr9mxSUJCadeNe7"
     },
     {
         name: 'Peak Power Peanut Crunch',
@@ -49,6 +57,8 @@ const products: Product[] = [
         mainImage: './peanut-butter-choco.png',
         description: 'Indulge in the irresistible allure of Peak Power Peanut Crunch, where the classic combination of creamy peanut butter and crunchy peanuts takes center stage. Packed with protein and bursting with flavor, this energizing granola bar is your go-to snack for fueling adventures and conquering challenges. With every bite, experience the perfect balance of nutty goodness and satisfying crunch that leaves you ready to tackle any peak you set your sights on.',
         images: ['./peanut.png', './cocoa.png'],
+        price: 1500,
+        priceId: "price_1OqG0bSF4qr9mxSUJCadeNe7"
     },
     {
         name: 'Espresso Bean Dark Chocolate',
@@ -56,6 +66,8 @@ const products: Product[] = [
         mainImage: './chocochip-brownie.png',
         description: 'Prepare to be captivated by the bold allure of Java Jolt Dark Delight. Infused with the rich essence of espresso beans and enrobed in decadent dark chocolate, this granola bar is a heavenly indulgence for coffee lovers and chocolate enthusiasts alike. With each velvety bite, experience a burst of energy and a symphony of flavors that awakens your senses and leaves you craving more. Elevate your snacking experience with this irresistible fusion of dark, delightful decadence.',
         images: ['./cocoa.png', './cranberry.png'],
+        price: 1500,
+        priceId: "price_1OqG0bSF4qr9mxSUJCadeNe7"
     },
     {
         name: 'Adventure Trail Mix Fusion',
@@ -63,6 +75,8 @@ const products: Product[] = [
         mainImage: './tropical-coconut.png',
         description: "Embark on a taste adventure like no other with our Adventure Trail Mix Fusion. This granola bar is a tantalizing blend of sweet and savory flavors, featuring a medley of wholesome nuts, dried fruits, and decadent chocolate chips. Whether you're hitting the trails or simply craving a snack that transports you to the great outdoors, this fusion of textures and tastes will satisfy your wanderlust and keep you fueled for whatever lies ahead.",
         images: ['./walnut.png', './cocoa.png'],
+        price: 1500,
+        priceId: "price_1OqG0bSF4qr9mxSUJCadeNe7"
     },
 ];
 
@@ -175,6 +189,10 @@ const Page: React.FC = () => {
                             ))}
                         </motion.div>
                     </div>
+                    <div className="flex justify-center items-center gap-4">
+                        <h1 className="text-2xl text-black font-semibold">Price</h1>
+                        <span className="text-4xl text-black font-bold">${selectedProduct.price * quantity}</span>
+                    </div>
 
                     <motion.div layout className='flex items-center text-8xl mt-8 z-50'>
                         <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='text-white text-3xl bg-transparent border border-white rounded-full w-8 h-8 flex justify-center items-center' onClick={decrementQuantity}>
@@ -220,7 +238,10 @@ const Page: React.FC = () => {
                                 ))}
                             </motion.div>
                         </div>
-
+                        <div className="flex gap-4">
+                            {/* <span className='text-pretty text-3xl text-black font-extralight block'>Price: </span> */}
+                            <span className="text-4xl text-black font-bold">${selectedProduct.price / 100 * quantity}</span>
+                        </div>
                         <motion.div layout className='flex items-center text-8xl mt-8'>
                             <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className='text-white text-3xl bg-transparent border border-white rounded-full w-8 h-8 flex justify-center items-center' onClick={decrementQuantity}>
                                 -

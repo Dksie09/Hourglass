@@ -3,25 +3,29 @@ import React from 'react';
 function Cool() {
     const features = [
         {
-            title: "Lorem ipsum",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat sit aliquet enim senectus dui eros nullam porttitor nascetur tortor.",
+            title: "What makes ALTRD BITES special?",
+            desc: "ALTRD BITES are not just any snacks – they're delightful triangle-style granola-focused bite-sized treats crafted to bring joy to your snacking moments. With each bite, you'll experience a burst of happiness from our bold flavors and wholesome ingredients, perfectly designed to fuel your active lifestyle.",
             id: "1",
         },
         {
-            title: "Lorem ipsum",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat sit aliquet enim senectus dui eros nullam porttitor nascetur tortor.",
+            title: "How do you select your ingredients?",
+            desc: "At ALTRD BITES, we're dedicated to sourcing our ingredients from the happiest places on earth – trusted suppliers who share our commitment to quality and sustainability. From lush orchards to vibrant farms, every ingredient is carefully chosen to ensure that each bite of our products is a blissful indulgence.",
             id: "2",
         },
         {
-            title: "Lorem ipsum",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat sit aliquet enim senectus dui eros nullam porttitor nascetur tortor.",
+            title: "Are ALTRD BITES suitable for dietary needs?",
+            desc: "Absolutely! We believe that happiness knows no bounds, which is why we offer a delightful array of options to suit every dietary preference. Whether you're vegan, gluten-free, or simply seeking low-sugar delights, there's a perfect ALTRD BITES treat waiting to brighten your day.",
             id: "3",
         },
         {
-            title: "Lorem ipsum",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat sit aliquet enim senectus dui eros nullam porttitor nascetur tortor.",
+            title: "How can I get my hands on ALTRD BITES?",
+            desc: "Hooray! ALTRD BITES are available for purchase both online through our website and in select retailers near you. It's easy peasy – simply hop onto our website, pick your favorite flavors, and let the happiness begin! And if you prefer the thrill of in-store shopping, look out for our cheerful packaging in stores.",
             id: "4",
-        },]
+        }
+    ]
+
+
+
 
     return (
         <div className='w-full mx-auto min-h-screen px-20 text-black'>
@@ -31,7 +35,7 @@ function Cool() {
                     <ul className='flex flex-col gap-10 md:gap-20 lg:gap-40'>
                         {features.map((feature) =>
                             <li key={feature.id} className='flex flex-col items-center gap-4 md:gap-6'>
-                                <h1 className='text-4xl md:text-6xl lg:text-9xl font-bold'>{feature.title}</h1>
+                                <h1 className='text-4xl md:text-6xl lg:text-6xl font-bold'>{feature.title}</h1>
                                 <p className='text-base md:text-lg lg:text-xl'>{feature.desc}</p>
                             </li>
                         )}
