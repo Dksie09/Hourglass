@@ -440,7 +440,7 @@ function Quote() {
         <>
             <Header />
             <div className='w-full flex min-h-screen flex-col items-center md:pt-20 pt-10 md:px-20 px-10 bg-[#FFDB97] relative overflow-x-clip'>
-                <h1 className='text-7xl font-extrabold shadow-outline text-white'>Our Stores</h1>
+                <h1 className='text-7xl font-extrabold text-white'>Our Stores</h1>
                 <div className="group py-5 cursor-pointer mb-10" onClick={handleFindNearestClick}>
                     <span className="text-2xl font-extralight text-black">
                         Grab a bite from the nearest store now

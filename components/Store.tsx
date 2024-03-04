@@ -64,7 +64,7 @@ function Quote() {
 
     return (
         <div className='w-full flex flex-col items-center justify-center md:pt-20 pt-10 md:px-20 px-10 bg-[#FFDB97] relative overflow-x-clip'>
-            <h1 className='text-7xl font-extrabold shadow-outline text-white'>Our Stores</h1>
+            <h1 className='text-7xl font-extrabold text-white'>Our Stores</h1>
             <div className="group py-5 cursor-pointer" onClick={handleFindNearestClick}>
                 <span className="text-2xl font-extralight text-black">
                     Find the nearest one right now
