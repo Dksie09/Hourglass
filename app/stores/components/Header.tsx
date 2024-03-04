@@ -124,9 +124,9 @@ const MobileHeader: React.FC<HeaderProps> = ({ cart }) => {
                     <Link href="/stores" className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         Stores
                     </Link>
-                    <Link href="/about" className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
+                    {/* <Link href="/about" className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         About
-                    </Link>
+                    </Link> */}
                     <Link href="/contact" className='hover:text-black cursor-pointer py-4 border-b border-black w-full text-center'>
                         Contact
                     </Link>
@@ -184,9 +184,9 @@ const DesktopHeader: React.FC<HeaderProps> = ({ cart }) => {
             <Link href="/stores" className='hover:text-black cursor-pointer'>
                 Stores
             </Link>
-            <Link href="/about" className='hover:text-black cursor-pointer'>
+            {/* <Link href="/about" className='hover:text-black cursor-pointer'>
                 About
-            </Link>
+            </Link> */}
             <Link href="/contact" className='hover:text-black cursor-pointer'>
                 Contact
             </Link>

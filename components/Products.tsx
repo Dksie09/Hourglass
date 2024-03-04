@@ -11,10 +11,10 @@ interface Product {
 }
 
 const productItems: Product[] = [
-    { name: 'Island Escape Coconut Crunch', Image: './tropical-coconut.png' },
-    { name: 'Snowy Summit Cranberry Crunch', Image: './crandberry-walnut.png' },
-    { name: 'Peak Power Peanut Crunch', Image: './peanut-butter-choco.png' },
-    { name: 'Espresso Bean Dark Chocolate', Image: './chocochip-brownie.png' },
+    { name: 'Island Escape Coconut Crunch', Image: './ie.png' },
+    { name: 'Snowy Summit Cranberry Crunch', Image: './ss.png' },
+    { name: 'Peak Power Peanut Crunch', Image: './pppc.png' },
+    { name: 'Espresso Bean Dark Chocolate', Image: './jjdd.png' },
 ];
 
 const Products: React.FC = () => {

@@ -46,10 +46,11 @@ function Cool() {
                 <div className='hidden md:flex w-full flex-col items-center mt-10'>
                     <div className='sticky top-0 justify-center'>
                         <div className="relative aspect-square rounded-2xl w-96 bg-transparent">
-                            <img src="./joint.png" className='object-cover absolute -top-64 scale-75 z-50' alt="Joint Image" />
+                            <img src="./ie.png" className='object-cover absolute scale-150 -top-10 z-50' alt="Joint Image" />
                         </div>
                     </div>
-                    <img src='./cig.png' className='object-cover mt-96 mr-20 scale-75 z-[-1]' alt="Cig Image" />
+                    <img src='./bite1.png' className='object-cover mt-96 mr-[22] scale-[0.25] z-[-1]' alt="Cig Image" />
+                    <img src='./bite2.png' className='object-cover -top-60 mr-[22] scale-[0.25] z-[-1]' alt="Cig Image" />
                 </div>
 
 
