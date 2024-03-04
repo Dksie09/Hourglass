@@ -195,7 +195,7 @@ const Page: React.FC = () => {
                     </div>
                     <div className="flex justify-center items-center gap-4">
                         <h1 className="text-2xl text-black font-semibold">Price</h1>
-                        <span className="text-4xl text-black font-bold">${selectedProduct.price * quantity}</span>
+                        <span className="text-4xl text-black font-bold">${selectedProduct.price / 100 * quantity}</span>
                     </div>
 
                     <motion.div layout className='flex items-center text-8xl mt-8 z-50'>
