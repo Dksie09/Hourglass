@@ -35,8 +35,8 @@ function Cool() {
                     <ul className='flex flex-col gap-10 md:gap-20 lg:gap-40'>
                         {features.map((feature) =>
                             <li key={feature.id} className='flex flex-col items-center gap-4 md:gap-6'>
-                                <h1 className='text-4xl md:text-6xl lg:text-6xl font-bold'>{feature.title}</h1>
-                                <p className='text-base md:text-lg lg:text-xl'>{feature.desc}</p>
+                                <h1 className='text-4xl md:text-6xl lg:text-6xl font-bold sm:text-start text-center'>{feature.title}</h1>
+                                <p className='text-base md:text-lg lg:text-xl sm:text-start text-center'>{feature.desc}</p>
                             </li>
                         )}
                     </ul>
@@ -49,8 +49,8 @@ function Cool() {
                             <img src="./ie.png" className='object-cover absolute scale-150 -top-10 z-50' alt="Joint Image" />
                         </div>
                     </div>
-                    <img src='./bite1.png' className='object-cover mt-96 mr-[22] scale-[0.25] z-[-1]' alt="Cig Image" />
-                    <img src='./bite2.png' className='object-cover -top-60 mr-[22] scale-[0.25] z-[-1]' alt="Cig Image" />
+                    <img src='./bite1.png' className='object-cover mt-96 mr-[22] scale-[0.25] z-[-1]' alt="Bite" />
+                    <img src='./bite2.png' className='object-cover -top-60 mr-[22] scale-[0.25] z-[-1]' alt="Bite" />
                 </div>
 
 

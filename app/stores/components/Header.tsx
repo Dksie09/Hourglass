@@ -69,7 +69,7 @@ const Header: React.FC = () => {
 
 
     return (
-        <div className='flex flex-wrap bg-[#FFDB97] w-full items-center justify-between'>
+        <div className='flex flex-wrap  p-5 bg-[#FFDB97] w-full items-center justify-between'>
             <img src='https://altrdcannabis.com/wp-content/uploads/2021/11/Asset-1.svg'
                 className='h-12 sm:h-16 md:h-20 pb-1 sm:pb-2 md:pb-5'
                 alt='logo' />
